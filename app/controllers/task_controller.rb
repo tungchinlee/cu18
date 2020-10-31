@@ -1,6 +1,10 @@
 class TaskController < ApplicationController
-  before_action :find_task, only:[:create, :show, :edit, :destroy]
+  before_action :find_user, only:[:new, :create, :show, :edit, :destroy]
 
+  def index
+    @tasks = Task.all
+  end
+  
   def new
     @task = Task.new
   end
@@ -9,7 +13,7 @@ class TaskController < ApplicationController
     @task = @user.tasks.new(task_params)
     if @task.save
       flash[:success] = "Task successfully created"
-      redirect_to user_path(@user)
+      redirect_to user_path(@user.id)
     else
       flash[:error] = "Something went wrong"
       render 'new'
@@ -38,7 +42,7 @@ class TaskController < ApplicationController
 
   private
 
-  def find_task
+  def find_user
     @user = User.find(params[:user_id])
   end
 

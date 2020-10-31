@@ -1,5 +1,5 @@
 
-<%= form_for(@task, url: user_task_index_path, mothed: 'post') do |f| %>
+<%= form_for(@task, url: user_task_index_path(@user), method: "post") do |f| %>
 
   <%= f.label :title %>
   <%= f.text_field :title %>

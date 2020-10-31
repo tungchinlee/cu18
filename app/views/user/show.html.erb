@@ -1,4 +1,9 @@
 <div><%= @user.name %></div>
+<ul>
+  <% @user.tasks.all.each do |task| %>
+    <li><%= task.title %></li>
+  <% end %>
+</ul>
 <%= link_to "new task", new_user_task_path(@user) %>
 
 
