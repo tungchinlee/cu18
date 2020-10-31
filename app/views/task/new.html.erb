@@ -1,0 +1,21 @@
+
+<%= form_for(@task, url: user_task_index_path, mothed: 'post') do |f| %>
+
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :content %>
+  <%= f.text_area :content%>
+
+  <%= f.label :tag %>
+  <%= f.text_field :tag%>
+
+  <%= f.label :priority %>
+  <%= f.text_field :priority%>
+
+  <%= f.label :status %>
+  <%= f.text_field :status%>
+  
+  <%= f.submit %>
+
+<% end %>
